@@ -22,7 +22,7 @@ export default defineConfig({
     environment: 'jsdom',
     coverage: {
       enabled: true,
-      include: ['tests/**', 'src/**'],
+      include: ['src/**', '!src/index.ts', '!src/types.ts'],
       reportsDirectory: 'test/coverage',
     },
   },
