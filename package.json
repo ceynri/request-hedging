@@ -1,0 +1,64 @@
+{
+  "name": "request-hedging",
+  "version": "1.0.0",
+  "description": "An implementation of the hedging policy for request retry",
+  "packageManager": "pnpm@8.9.2",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/request-hedging.js",
+      "require": "./dist/request-hedging.cjs"
+    }
+  },
+  "main": "./dist/request-hedging.cjs",
+  "module": "./dist/request-hedging.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "dev": "vite build -w",
+    "build": "vite build && pnpm build:types",
+    "build:types": "tsc -b ./tsconfig.types.json",
+    "clean": "rm -rf dist",
+    "lint": "eslint 'src/**/*.{js,ts,tsx,vue}' --max-warnings 0 --fix",
+    "typecheck": "tsc --noEmit",
+    "test": "pnpm lint && pnpm typecheck && vitest run",
+    "test:dev": "vitest"
+  },
+  "keywords": [
+    "retry",
+    "hedging",
+    "request",
+    "promise"
+  ],
+  "author": "ceynri <ceynri@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ceynri/request-hedging.git"
+  },
+  "homepage": "https://github.com/ceynri/request-hedging",
+  "license": "MIT",
+  "browserslist": [
+    "iOS >= 9",
+    "Android >= 6",
+    ">= 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "@vitest/coverage-v8": "^1.2.1",
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "jsdom": "^24.0.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.12",
+    "vitest": "^1.2.1"
+  }
+}

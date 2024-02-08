@@ -1,0 +1,13 @@
+dist/*
+node_modules/**/*
+
+*.config.js
+*.config.ts
+node_modules
+dist
+!.*
+*.html
+*.d.ts
+/.*.*
+/.*.js
+*.md
