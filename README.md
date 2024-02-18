@@ -10,7 +10,16 @@ Not requestor, just hedging policy logic implementation.
 - [gRPC Request Hedging](https://grpc.io/docs/guides/request-hedging/)
 - [The Tail At Scale](https://research.google/pubs/pub40801/)
 
-## Usage Cases
+## Usage
+
+Install:
+
+```sh
+npm install request-hedging
+# or yarn/pnpm...
+```
+
+### Cases
 
 Single request hedging:
 
@@ -59,6 +68,8 @@ const result2 = await hedging([
 | hedgingDelay   | `number` (ms)                              | `1000`                             |
 | timeout        | `number` (ms)                              | `Infinity`                         |
 | retryableError | `boolean \| ((error: unknown) => boolean)` | `true`                             |
+
+---
 
 ## Local Dev
 
