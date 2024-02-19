@@ -92,7 +92,7 @@ describe.concurrent('最终成功', () => {
   });
 });
 
-describe.concurrent.skip('对冲失败', () => {
+describe.concurrent('对冲失败', () => {
   test('原始请求报错触发对冲，对冲请求报错', async ({ expect }) => {
     expect.assertions(1);
 

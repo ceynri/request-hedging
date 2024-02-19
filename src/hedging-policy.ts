@@ -47,7 +47,11 @@ export class HedgingPolicy<T extends AsyncFunction> {
         clearTimeout(this.timer);
         resolve(...args);
       };
-      this.fail = reject;
+      this.fail = (...args) => {
+        this.done = true;
+        clearTimeout(this.timer);
+        reject(...args);
+      };
     });
   }
 
@@ -109,12 +113,9 @@ export class HedgingPolicy<T extends AsyncFunction> {
     try {
       const target = this.targets[index % this.targets.length];
       const result = await target() as ReturnType<T>;
-      if (this.done) {
-        // 已过期
-        return;
+      if (!this.done) {
+        this.succeed(result);
       }
-      // 结束执行
-      this.succeed(result);
     } catch (error) {
       // 暂存错误结果
       this.errorResult = error;
@@ -130,9 +131,6 @@ export class HedgingPolicy<T extends AsyncFunction> {
       return;
     }
     this.timer = setTimeout(() => {
-      if (this.done) {
-        return;
-      }
       if (this.hasErrorResult()) {
         this.fail(this.errorResult);
         return;
