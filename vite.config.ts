@@ -9,6 +9,7 @@ export default defineConfig({
       name: 'request-hedging',
       formats: ['es', 'cjs'],
     },
+    target: 'es6',
   },
   resolve: {
     alias: {
