@@ -1,6 +1,6 @@
 {
   "name": "request-hedging",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An implementation of the hedging policy for request retry",
   "packageManager": "pnpm@8.9.2",
   "sideEffects": false,
