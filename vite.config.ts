@@ -20,9 +20,6 @@ export default defineConfig({
       '@/': resolve(__dirname, './src/'),
     },
   },
-  define: {
-    'process.env.__VERSION__': JSON.stringify(version),
-  },
   test: {
     environment: 'jsdom',
     coverage: {
