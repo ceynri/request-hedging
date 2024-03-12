@@ -1,11 +1,15 @@
 /// <reference types="vitest" />
 import { defineConfig } from 'vite';
 import { version } from './package.json';
+import { fileURLToPath } from 'url';
+import { dirname, resolve } from 'path';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   build: {
     lib: {
-      entry: new URL('./src/index.ts', import.meta.url).pathname,
+      entry: resolve(__dirname, './src/index.ts'),
       name: 'request-hedging',
       formats: ['es', 'cjs'],
     },
@@ -13,11 +17,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@/': new URL('./src/', import.meta.url).pathname,
+      '@/': resolve(__dirname, './src/'),
     },
-  },
-  define: {
-    'process.env.__VERSION__': JSON.stringify(version),
   },
   test: {
     environment: 'jsdom',
