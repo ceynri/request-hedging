@@ -1,6 +1,6 @@
 /// <reference types="vitest" />
 import { defineConfig } from 'vite';
-import { version } from './package.json';
+
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
 
