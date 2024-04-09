@@ -8,7 +8,7 @@ Not requestor, just hedging policy logic implementation.
 
 Hedging policy can be regarded as an aggressive retry policy. A complete request may send multiple identical requests until one of them returns successfully. We don't need to wait for the previous request to time out before sending a new hedging request, which makes the hedging policy have a better optimization effect for long-tail requests.
 
-![example](https://fastly.jsdelivr.net/gh/ceynri/assets@readme/images/1710681302304Snipaste_2024-03-17_21-14-09.png)
+![example](https://fastly.jsdelivr.net/gh/ceynri/assets@main/images/17126364119081712636411004.png)
 
 > Hedging policy in the backend:
 >
